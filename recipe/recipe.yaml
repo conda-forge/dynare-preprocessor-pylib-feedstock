@@ -31,7 +31,6 @@ requirements:
     - pybind11
     - libboost-headers
     # - pthread-stubs   # all threading removed from source
-    #- libpython
 
   run:
     - python
