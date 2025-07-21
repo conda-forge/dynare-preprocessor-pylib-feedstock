@@ -30,7 +30,7 @@ def test_dynare_preprocessor():
    var y, c, k, a, h, b;
    varexo e, u;
    
-   parameters beta, rho, alpha, delta, theta, psi, tau;
+   parameters beta, rho, alpha, delta, theta, psi, tau, phi;
    
    alpha = 0.36;
    rho   = 0.95;
@@ -72,5 +72,4 @@ def test_dynare_preprocessor():
    stoch_simul;
    """
    
-   res = dynare_preprocessor.preprocess(txt)
-   print(res)
+   modfile = dynare_preprocessor.DynareModel(txt)
