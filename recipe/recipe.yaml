@@ -6,7 +6,7 @@ package:
   name: dynare-preprocessor-pylib
   version: 0.0.0.dev1
 
-source:                      
+source:
   url: https://git.dynare.org/albop/preprocessor/-/archive/dynare_lite/preprocessor-dynare_lite.tar.gz
   sha256: a712547f2c57a8f8a683dd0f8cf8d28ab8083f4523ecb519dad5ffb35541d69f
 
