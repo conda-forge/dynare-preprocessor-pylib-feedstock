@@ -4,8 +4,8 @@ export BOOST_ROOT=$PREFIX
 
 meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
     --buildtype=release build_preproc \
-    -Dcpp_args="-w  -Wno-enum-constexpr-conversion -I${PREFIX}/include/pybind11"  \
-    -Dcpp_link_args="-w  -Wno-enum-constexpr-conversion -I${PREFIX}/include/pybind11" \
+    -Dcpp_args="-w  -Wno-enum-constexpr-conversion"  \
+    -Dcpp_link_args="-w  -Wno-enum-constexpr-conversion" \
     -Dbuild_library="enabled"
 
 meson compile -C build_preproc
