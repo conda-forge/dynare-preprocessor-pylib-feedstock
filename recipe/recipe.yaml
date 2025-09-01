@@ -11,7 +11,7 @@ source:
   sha256: a712547f2c57a8f8a683dd0f8cf8d28ab8083f4523ecb519dad5ffb35541d69f
 
 build:
-  number: 0
+  number: 1
   skip:
     - win
     - osx
@@ -47,7 +47,7 @@ tests:
     files:
       recipe:
         - run_test.py
-        
+
 
 about:
   homepage: https://www.dynare.org/
