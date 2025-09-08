@@ -4,7 +4,7 @@ export BOOST_ROOT=$PREFIX
 
 meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
     --buildtype=release build_preproc \
-    -Dcpp_args="-w  -Wno-enum-constexpr-conversion"  \
+    -Dcpp_args="-nostdinc++ -nostdlib++ -w  -Wno-enum-constexpr-conversion"  \
     -Dcpp_link_args="-w  -Wno-enum-constexpr-conversion" \
     -Dbuild_library="enabled"
 
