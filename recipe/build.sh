@@ -1,6 +1,14 @@
 #!/bin/bash
 
+set -e
+set -x
+
 export BOOST_ROOT=$PREFIX
+
+if [ "$(uname)" == "Darwin" ]; then
+  # See https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
+  CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
 
 CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
 
