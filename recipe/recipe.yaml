@@ -20,7 +20,12 @@ requirements:
     - '${{ compiler("cxx") }}'
     - python
     - bison
-    - flex
+    - if: unix
+      then: flex
+    - if: unix
+      then: bison
+    - if: win
+      then: winflexbison
     - meson
     #    - cross-python_emscripten-wasm32 # only for wasm
     - pkg-config
