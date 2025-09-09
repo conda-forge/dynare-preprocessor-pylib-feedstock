@@ -1,4 +1,4 @@
-@echo off
+@echo on
 REM Set environment variable BOOST_ROOT
 set BOOST_ROOT=%PREFIX%
 
@@ -12,7 +12,6 @@ meson setup ^
   -Dcpp_args="-w -Wno-enum-constexpr-conversion " ^
   -Dcpp_link_args="-w -Wno-enum-constexpr-conversion" ^
   -Dbuild_library=enabled
-  -Dcpp_std=c++20
 
 REM Compile with meson
 meson compile -C build_preproc
