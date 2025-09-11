@@ -11,7 +11,8 @@ meson setup ^
   --buildtype=release build_preproc ^
   -Dcpp_args="-w -Wno-enum-constexpr-conversion " ^
   -Dcpp_link_args="-w -Wno-enum-constexpr-conversion" ^
-  -Dbuild_library=enabled
+  -Dbuild_library=enabled ^
+  -Dcpp_std=c++11
 
 REM Compile with meson
 meson compile -C build_preproc
