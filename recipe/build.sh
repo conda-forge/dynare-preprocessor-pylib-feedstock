@@ -10,7 +10,12 @@ set -x
 
 if [ "$(uname)" == "Darwin" ]; then
   # See https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
-  CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+  # CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+  meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
+    --buildtype=release build_preproc \
+    -Dcpp_args="-w  -Wno-enum-constexpr-conversion -D_LIBCPP_DISABLE_AVAILABILITY"  \
+    -Dcpp_link_args="-w  -Wno-enum-constexpr-conversion" \
+    -Dbuild_library="enabled"
 fi
 
 meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
