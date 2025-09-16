@@ -14,6 +14,8 @@ meson setup ^
   -Dbuild_library=enabled ^
   -Dcpp_std=c++20
 
+type $SRC_DIR/build_preproc/meson-logs/meson-log.txt
+
 REM Compile with meson
 meson compile -C build_preproc
 
