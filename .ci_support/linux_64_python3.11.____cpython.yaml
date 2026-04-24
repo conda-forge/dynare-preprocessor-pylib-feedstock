@@ -1,5 +1,3 @@
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -11,7 +9,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 libboost_headers:
-- '1.88'
+- '1.90'
 pin_run_as_build:
   python:
     min_pin: x.x
