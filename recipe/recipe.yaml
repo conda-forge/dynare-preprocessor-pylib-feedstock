@@ -1,6 +1,6 @@
 context:
   name: dynare-preprocessor-pylib
-  version: 0.0.0.dev2
+  version: 0.0.1.dev0
 
 package:
   name: ${{ name }}
