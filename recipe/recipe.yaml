@@ -1,38 +1,42 @@
 context:
   name: dynare-preprocessor-pylib
-  version: 0.0.0.dev1
+  version: 0.0.0.dev2
 
 package:
-  name: dynare-preprocessor-pylib
-  version: 0.0.0.dev1
+  name: ${{ name }}
+  version: ${{ version }}
 
 source:
-  url: https://github.com/EconForge/dynare_preprocessor_pylib/archive/79fa5730d7f1300109ec36900f3241c0527e32c7.tar.gz
-  sha256: 66863669aa9ea09c431f28eaabe41d574a758425db77605d52edfb9ff040a038
+  url: https://github.com/EconForge/dynare_preprocessor_pylib/archive/073de0045c4a1b986081fc4164c290d7de510c85.tar.gz
+  sha256: 594241ecd8e48f8d52f96875fd2c5a80dca7899148f4e772fd45b6ab99d6056e
 
 build:
-  number: 3
-  skip:
-    - win
-    
+  number: 0
+
 requirements:
   build:
     - '${{ compiler("cxx") }}'
+    - '${{ stdlib("c") }}'
     - python
-    - bison
-    - flex
+    - nanobind
+    - if: unix
+      then: flex
+    - if: unix
+      then: bison
+    - if: win
+      then: winflexbison
     - meson
-    #    - cross-python_emscripten-wasm32 # only for wasm
+    - ninja
     - pkg-config
 
   host:
     - python
-    - pybind11
+    - nanobind
     - libboost-headers
-    # - pthread-stubs   # all threading removed from source
 
   run:
     - python
+    - numpy
 
 tests:
   - python:
@@ -46,7 +50,6 @@ tests:
     files:
       recipe:
         - run_test.py
-
 
 about:
   homepage: https://www.dynare.org/

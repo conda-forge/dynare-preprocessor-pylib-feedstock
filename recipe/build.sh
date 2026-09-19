@@ -1,25 +1,24 @@
-#!/bin/bash
-
-export BOOST_ROOT=$PREFIX
-
-#!/bin/bash
 #!/usr/bin/env bash
 
 set -e
 set -x
 
+export BOOST_ROOT=$PREFIX
+
 if [ "$(uname)" == "Darwin" ]; then
   # See https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
   CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+  EXTRA_CPP_ARGS="-D_LIBCPP_DISABLE_AVAILABILITY"
+else
+  EXTRA_CPP_ARGS=""
 fi
 
 meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
     --buildtype=release build_preproc \
-    -Dcpp_args="-w  -Wno-enum-constexpr-conversion"  \
-    -Dcpp_link_args="-w  -Wno-enum-constexpr-conversion" \
-    -Dbuild_library="enabled"
+    -Dcpp_args="$EXTRA_CPP_ARGS" \
+    -Dcpp_link_args="-pthread -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
+    -Dbuild_cli=disabled \
+    -Dbuild_library=enabled
 
 meson compile -C build_preproc
-meson install -C build_preproc #--destdir="../
-
-rm $PREFIX/bin/python
+meson install -C build_preproc
