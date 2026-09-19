@@ -9,8 +9,8 @@ meson setup ^
   --libdir="%LIBRARY_LIB%" ^
   --includedir="%LIBRARY_INC%" ^
   --buildtype=release build_preproc ^
-  -Dcpp_args="-w -Wno-enum-constexpr-conversion -I%LIBRARY_INC%" ^
-  -Dcpp_link_args="-w -Wno-enum-constexpr-conversion -L%LIBRARY_LIB%" ^
+  -Dcpp_args="-I%LIBRARY_INC%" ^
+  -Dcpp_link_args="-L%LIBRARY_LIB%" ^
   -Dbuild_cli=disabled ^
   -Dbuild_library=enabled
 if errorlevel 1 exit 1
