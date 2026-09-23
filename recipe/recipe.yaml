@@ -11,7 +11,7 @@ source:
   sha256: 594241ecd8e48f8d52f96875fd2c5a80dca7899148f4e772fd45b6ab99d6056e
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,9 +20,9 @@ requirements:
     - python
     - nanobind
     - if: unix
-      then: flex
-    - if: unix
-      then: bison
+      then:
+        - flex
+        - bison
     - if: win
       then: winflexbison
     - meson
