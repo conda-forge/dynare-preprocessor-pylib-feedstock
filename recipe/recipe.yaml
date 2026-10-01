@@ -1,17 +1,17 @@
 context:
   name: dynare-preprocessor-pylib
-  version: 0.0.1.dev0
+  version: 0.0.1
 
 package:
   name: ${{ name }}
   version: ${{ version }}
 
 source:
-  url: https://github.com/EconForge/dynare_preprocessor_pylib/archive/073de0045c4a1b986081fc4164c290d7de510c85.tar.gz
-  sha256: 594241ecd8e48f8d52f96875fd2c5a80dca7899148f4e772fd45b6ab99d6056e
+  url: https://github.com/EconForge/dynare_preprocessor_pylib/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: a3b0e13ae1917607427c0fd47f4e45e992a4715000df0fc2a02b8d8fb30851d1
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
