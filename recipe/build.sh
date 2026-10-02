@@ -13,8 +13,7 @@ else
   EXTRA_CPP_ARGS=""
 fi
 
-meson setup --prefix=$PREFIX --bindir=$PREFIX/bin --libdir=$PREFIX/lib --includedir=$PREFIX/include \
-    --buildtype=release build_preproc \
+meson setup ${MESON_ARGS} build_preproc \
     -Dcpp_args="$EXTRA_CPP_ARGS" \
     -Dcpp_link_args="-pthread -L$PREFIX/lib -Wl,-rpath,$PREFIX/lib" \
     -Dbuild_cli=disabled \
